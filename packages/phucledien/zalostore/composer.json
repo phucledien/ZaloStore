@@ -1,0 +1,12 @@
+{
+    "name": "dasuperman/zalostore",
+    "description": "Intergrate zalo store api to laravel project",
+    "authors": [
+        {
+            "name": "Phuc Le Dien",
+            "email": "phucledien@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -150,6 +150,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Phucledien\Zalostore\ZaloStoreServiceProvider::class,
 
         /*
          * Application Service Providers...
