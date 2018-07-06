@@ -6,7 +6,7 @@
           <div class="card-header">
             <div class="row">
               <span>Products</span>
-              <form class="form-inline offset-md-8" action="">
+              <form class="form-inline offset-md-8 offset-sm-5" action="">
                 <div class="form-group ">
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="Search" placeholder="Search">
                   <button class="btn btn-outline-secondary" type="button">Button</button>
@@ -21,37 +21,29 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Categories</th>
+                    <th>ID</th>
                     <th>Date</th>
-                    
+                    <th>Customer</th>
+                    <th>Shipping</th>
+                    <th>Payment</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Categories</th>
-                    <th>Date</th>
-                    
-                  </tr>
-                </tfoot>
+                
                 <tbody>
-                  @foreach ($products as $product)
+                  
                     <tr>
                       <td>
                         Tiger Nixon
-                        <a href="{{route('products.edit',['id'=> $product->id])}}">Edit</a>
-                        <a href="">Delete</a>
                       </td>
-
                       <td>$320,800</td>
                       <td>61</td>
                       <td>2011/04/25</td>
+                      <td>2011/04/25</td>
+                      <td>2011/04/25</td>
                       
                     </tr>
-                  @endforeach
+                  
                 </tbody>
               </table>
             </div>

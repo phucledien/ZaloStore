@@ -15,14 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test', function () {
-    return view('admin.products.create');
-});
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('products', 'ProductsController');
+    Route::resource('categories','CategoriesController');
+    Route::resource('stores','StoresController');
+    Route::resource('orders','OrdersController');
+    
 });
 
 

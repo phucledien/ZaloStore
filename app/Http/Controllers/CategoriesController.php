@@ -13,7 +13,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('admin.categories.index');
     }
 
     /**
@@ -56,7 +57,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.caregories.edit');
     }
 
     /**

@@ -11,7 +11,12 @@
           <span class="nav-link-text">Dashboard</span>
         </a>
       </li>
-
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <a class="nav-link" href="{{route('stores.index') }}">
+          <i class="fa fa-fw fa-dashboard"></i>
+          <span class="nav-link-text">Store</span>
+        </a>
+      </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Products">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseComponents" data-parent="#exampleAccordion">
           <i class="fa fa-fw fa-wrench"></i>
@@ -25,10 +30,11 @@
             <a href="{{route('products.create')}}">Create Product</a>
           </li>
           <li>
-            <a href="">Categories</a>
+            <a href="{{route('categories.index')}}">Categories</a>
           </li>
           <li>
             <a href="">Attributes</a>
+            <!-- route('attributes.index') -->
           </li>
         </ul>
       </li>
@@ -40,7 +46,7 @@
         </a>
         <ul class="sidenav-second-level collapse" id="collapseExamplePages">
           <li>  
-            <a href="#">View Order</a>
+            <a href="{{route('orders.index')}}">View Orders</a>
           </li>
           <li>
             <a href="#">Create Order</a>

@@ -4,17 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class StoresController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $products=[];
-        return view('admin.products.index')->with('products',$products);
+        $stores=[];    
+        return view('admin.stores.index');
     }
 
     /**
@@ -24,8 +19,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-
-        return view('admin.products.create');
+        return view('admin.stores.create');
     }
 
     /**
@@ -58,7 +52,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        return vieW('admin.products.edit');
+        return view('admin.stores.edit'); 
     }
 
     /**

@@ -21,41 +21,47 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Categories</th>
+                    <th>ID</th>
+                    <th>Name
+                    </th>
+                    <th>OA_ID</th>
+                    <th>OA_SECRET</th>
                     <th>Date</th>
-                    
+                    <th>Select</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Categories</th>
-                    <th>Date</th>
-                    
-                  </tr>
-                </tfoot>
                 <tbody>
-                  @foreach ($products as $product)
+                 
                     <tr>
                       <td>
                         Tiger Nixon
-                        <a href="{{route('products.edit',['id'=> $product->id])}}">Edit</a>
-                        <a href="">Delete</a>
                       </td>
 
                       <td>$320,800</td>
                       <td>61</td>
                       <td>2011/04/25</td>
+                      <td>2011/04/25</td>
+                      <td>
+                        <button type="button" class="btn btn-info">Select</button>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-success">Edit</button>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                      </td>
                       
                     </tr>
-                  @endforeach
+                  
                 </tbody>
               </table>
             </div>
+
+            <button type="button" class="btn btn-success mt-2"><a href='{{route('stores.create')}}'>Create</button>
           </div>
+          
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
         </div>
