@@ -11,13 +11,13 @@ class ProductsController extends Controller
     {
         $zaloClient = new ZaloClient();
         $products = $zaloClient->getListProduct()['products'];
-        return view('products.index')->with('products', $products);
+        return view('admin.products.index')->with('products', $products);
 
     }
 
     public function create()
     {
-        return view('products.create');
+        return view('admin.products.create');
     }
 
     public function store()
