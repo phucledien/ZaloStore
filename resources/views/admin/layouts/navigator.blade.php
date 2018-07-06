@@ -11,7 +11,48 @@
           <span class="nav-link-text">Dashboard</span>
         </a>
       </li>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Products">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseComponents" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-wrench"></i>
+          <span class="nav-link-text">Products</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <li>
+            <a href="{{route('products.index')}}">All product</a>
+          </li>
+          <li>
+            <a href="{{route('products.create')}}">Create Product</a>
+          </li>
+          <li>
+            <a href="">Categories</a>
+          </li>
+          <li>
+            <a href="">Attributes</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Order">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseExamplePages" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-file"></i>
+          <span class="nav-link-text">Orders</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+          <li>  
+            <a href="#">View Order</a>
+          </li>
+          <li>
+            <a href="#">Create Order</a>
+          </li>
+        </ul>
+      </li>
+
     </ul>
+
+
+
+
     <ul class="navbar-nav sidenav-toggler">
       <li class="nav-item">
         <a class="nav-link text-center" id="sidenavToggler">
