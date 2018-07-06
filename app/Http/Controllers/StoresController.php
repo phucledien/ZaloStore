@@ -33,4 +33,39 @@ class StoresController extends Controller
         session()->flash('success', 'New store added successfully');
         return redirect()->route('stores.index');
     }
+
+    public function edit(Store $store)
+    {
+        return view('admin.stores.edit')->with('store', $store);
+    }
+
+    public function update(Store $store)
+    {
+        $store->name = request('name');
+        $store->oa_id = request('oa_id');
+        $store->oa_secret = request('oa_secret');
+        $store->save();
+
+        session()->flash('success', 'Updated Store Successfully');
+
+        return redirect()->route('stores.edit', ['store' => $store->id]);
+    }
+
+    public function destroy(Store $store)
+    {
+        $store->delete();
+        session()->flash('success', 'Deleted Store Successfully');
+
+        return redirect()->route('stores.index');
+    }
+
+    public function select(Store $store)
+    {
+        $user = Auth::user();
+        $user->store_id = $store->id;
+        $user->save();
+        session()->flash('success', 'Changed Store successfully');
+
+        return redirect()->back();
+    }
 }

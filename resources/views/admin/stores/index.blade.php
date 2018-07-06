@@ -2,8 +2,6 @@
 
 @section('content')
 <div class="container-fluid">
-
-
     
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
@@ -23,17 +21,18 @@
   @endif
 
   <div class="card mb-3">
-          <div class="card-header">
-            <div class="row">
-              <span>Products</span>
-              <form class="form-inline offset-md-8" action="">
-                <div class="form-group ">
+          <div class="card-header d-flex">
+
+              <span class="mr-auto">Products</span>
+              <form class="form-inline" action="">
+                <div class="form-group mr-3">
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="Search" placeholder="Search">
+                </div>
+                <div class="form-group">
                   <button class="btn btn-outline-secondary" type="button">Button</button>
                 </div>
               </form>
-              
-            </div>
+
           </div>
           
           <div class="card-body">
@@ -63,7 +62,7 @@
                       <td>{{ $store->created_at }}</td>
                       @if (Auth::user()->store_id != $store->id)
                       <td>
-                        <button type="button" class="btn btn-info">Select</button>
+                        <a href="{{ route('stores.select', ['store' => $store]) }}" class="btn btn-info">Select</a>
                       </td>
                       @else
                       <td>
@@ -71,10 +70,14 @@
                       </td>
                       @endif
                       <td>
-                        <button type="button" class="btn btn-success">Edit</button>
+                        <a href="{{ route('stores.edit', ['store' => $store->id]) }}" class="btn btn-success">Edit</a>
                       </td>
                       <td>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <form action="{{ route('stores.destroy', ['store' => $store->id]) }}" method="POST">
+                          @method('DELETE')
+                          @csrf
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                       </td>
                       
                     </tr>
@@ -83,8 +86,9 @@
               </table>
             </div>
 
-            <button type="button" class="btn btn-success mt-2"><a href='{{route('stores.create')}}'>Create</button>
+            <a class="btn btn-primary mt-2" href='{{ route('stores.create') }}'>Add New Store</a>
           </div>
-        </div>
-        </div>
+    </div>
+
+  </div>
 @endsection
