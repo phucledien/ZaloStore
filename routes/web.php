@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::resource('products', 'ProductsController');
 });
 
 
