@@ -13,13 +13,13 @@
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
         <a class="nav-link" href="{{route('stores.index') }}">
-          <i class="fa fa-fw fa-dashboard"></i>
+          <i class="fa fa-fw fa-bank"></i>
           <span class="nav-link-text">Store</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Products">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseComponents" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-wrench"></i>
+          <i class="fa fa-fw fa-tag"></i>
           <span class="nav-link-text">Products</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseComponents">
@@ -41,7 +41,7 @@
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Order">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseExamplePages" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-file"></i>
+          <i class="fa fa-fw fa-shopping-basket"></i>
           <span class="nav-link-text">Orders</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseExamplePages">

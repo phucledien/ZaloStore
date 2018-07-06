@@ -1,6 +1,15 @@
 @extends ('admin.layouts.master')
 
 @section ('content')
+<div class="container-fluid">
+
+  <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{{ route('dashboard') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Create Product</li>
+    </ol>
 
     <div class="card mb-3 ml-3 mr-3">
         <div class="card-header">
@@ -39,7 +48,7 @@
                 </div>
 
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" required  multiple>
                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                 </div>
@@ -48,5 +57,5 @@
             </form>
         </div>
     </div>
-       
+</div>       
 @endsection
