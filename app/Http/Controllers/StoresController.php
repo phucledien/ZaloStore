@@ -11,12 +11,12 @@ class StoresController extends Controller
     public function index()
     {
         $stores = Store::paginate(10);
-        return view('stores.index')->with('stores', $stores);
+        return view('admin.stores.index')->with('stores', $stores);
     }
 
     public function create()
     {
-        return view('stores.create');
+        return view('admin.stores.create');
     }
 
     public function store()

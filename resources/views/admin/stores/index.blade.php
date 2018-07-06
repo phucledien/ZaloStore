@@ -1,8 +1,28 @@
 @extends ('admin.layouts.master')
 
 @section('content')
-<div>
-  <div class="card mb-3 ml-3 mr-3">
+<div class="container-fluid">
+
+
+    
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{{ route('dashboard') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Stores</li>
+      </ol>
+
+  @if (Session::has('success'))
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          {{ Session::get('success') }}
+      </div>
+  @endif
+
+  <div class="card mb-3">
           <div class="card-header">
             <div class="row">
               <span>Products</span>
@@ -33,19 +53,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                 
+                    @foreach ($stores as $store)
                     <tr>
-                      <td>
-                        Tiger Nixon
-                      </td>
+                      <td>{{ $store->id }}</td>
 
-                      <td>$320,800</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>2011/04/25</td>
+                      <td>{{ $store->name }}</td>
+                      <td>{{ $store->oa_id }}</td>
+                      <td>{{ $store->oa_secret }}</td>
+                      <td>{{ $store->created_at }}</td>
+                      @if (Auth::user()->store_id != $store->id)
                       <td>
                         <button type="button" class="btn btn-info">Select</button>
                       </td>
+                      @else
+                      <td>
+                        <button type="button" class="btn btn-info" disabled>Select</button>
+                      </td>
+                      @endif
                       <td>
                         <button type="button" class="btn btn-success">Edit</button>
                       </td>
@@ -54,15 +78,13 @@
                       </td>
                       
                     </tr>
-                  
+                  @endforeach
                 </tbody>
               </table>
             </div>
 
             <button type="button" class="btn btn-success mt-2"><a href='{{route('stores.create')}}'>Create</button>
           </div>
-          
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
         </div>
 @endsection
