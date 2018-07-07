@@ -30,7 +30,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <input type="text" class="form-control" id="message" name="message">
+                        <textarea type="text" class="form-control" id="message" rows="10" name="message" placeholder="Type message to broadcast here"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary mt-2">Send message</button>
