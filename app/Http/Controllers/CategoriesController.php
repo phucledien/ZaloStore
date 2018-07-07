@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ZaloClient;
 
 class CategoriesController extends Controller
 {
@@ -13,8 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.categories.index');
+        $zaloClient = new ZaloClient();
+        $categories = $zaloClient->getCategories()['cates'];
+        return view('admin.categories.index')->with('categories',$categories);
     }
 
     /**

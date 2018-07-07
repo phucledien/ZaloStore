@@ -8,7 +8,8 @@
         </div>
         <div class="card-body">
 
-            <form method="POST" action="{{ route('products.update',['product_id' => $id]) }}">
+            <form method="POST" action="{{ route('products.update',['id' => $id]) }}">
+                @method('PATCH')    
                 @csrf
                 <div class="form-group">
                     <label>Product name</label>
@@ -44,7 +45,7 @@
                     <label class="custom-file-label" for="images">Choose file...</label>
                 </div>
 
-                <button type="button" class="btn btn-success mt-2">Success</button>
+                <button type="submit" class="btn btn-success mt-2">Success</button>
             </form>
         </div>
     </div>

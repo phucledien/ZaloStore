@@ -58,7 +58,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Count</th>  
+                                 
                                 <th>Edit</th> 
                                 <th>Delete</th> 
                             </tr>
@@ -67,36 +67,26 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Count</th>  
+                                  
                                 <th>Edit</th> 
                                 <th>Delete</th> 
                             </tr>
                             </tfoot>
                             <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>$320,800</td>
-                                <td>61</td>
-                                
-                                <td>
-                                    <button type="button" class="btn btn-success"><a href=''>Edit</a></button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger"><a href=''>Delete</a></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>$320,800</td>
-                                <td>61</td>
-                               
-                                <td>
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                                @foreach( $categories as $category)
+                                    <tr>
+                                        <td>{{$category['name']}}</td>
+                                        <td>{{$category['description']}}</td>
+                                        
+                                        
+                                        <td>
+                                            <button type="button" class="btn btn-success"><a href=''>Edit</a></button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger"><a href=''>Delete</a></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -50,11 +50,10 @@ class ProductsController extends Controller
     {
         $zaloClient = new ZaloClient();
         $categories = $zaloClient->getCategories()['cates'];
-        
         return view('admin.products.edit')->with('categories',$categories)->with('id',$id);
     }
 
-    public function update()
+    public function update( $product)
     {
         $zaloClient = new ZaloClient();
         $name = request('name');
@@ -67,7 +66,11 @@ class ProductsController extends Controller
             $image_paths[] = $image->path();
         }
 
-        $zaloClient->updateProduct($product_id,$name, $desc, $image_paths, $price);
+        $zaloClient->updateProduct($product['id'],$name, $desc, $image_paths, $price);
+        
+        session()->flash('success', 'Update Product Successfully');
+
+        return redirect()->route('products.index');
     }
 
     public function destroy()
