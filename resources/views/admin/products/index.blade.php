@@ -5,13 +5,22 @@
 
   <!-- Breadcrumbs-->
   <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="{{ route('dashboard') }}">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Products</li>
-      </ol>
+    <li class="breadcrumb-item">
+      <a href="{{ route('dashboard') }}">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Products</li>
+  </ol>
 
-  <div class="card mb-3 ml-3 mr-3">
+  @if (Session::has('success'))
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          {{ Session::get('success') }}
+      </div>
+  @endif
+
+  <div class="card mb-3">
           <div class="card-header">
             <div class="row">
               <span>Products</span>

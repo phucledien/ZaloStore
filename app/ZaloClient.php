@@ -189,7 +189,7 @@ class ZaloClient {
         // dd($data);
         $params = ['data' => $data];
         $response = $this->zalo->post(ZaloEndpoint::API_OA_STORE_CREATE_PRODUCT, $params);
-        dd($response->getDecodedBody());
+        // dd($response->getDecodedBody());
         return $result = $response->getDecodedBody()['data']; // result 
     }
     /**

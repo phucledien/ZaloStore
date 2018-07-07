@@ -38,19 +38,11 @@ class ProductsController extends Controller
             $image_paths[] = $image->path();
         }
 
-        dd(request()->images[0]->path());
-        //$zaloClient->createProduct($name, $desc, $image_paths, $price);
+        $zaloClient->createProduct($name, $desc, $image_paths, $price);
 
+        session()->flash('success', 'Created Product Successfully');
 
-
-        // dd(request()->images[0]->path());
-
-        // foreach($images as $image) {
-        //     $featured_new_name = time().$image->getClientOriginalName();
-        //     $image->move('uploads/posts', $featured_new_name);
-
-        // }
-        // dd('Done');
+        return redirect()->route('products.index');
     }   
     
 

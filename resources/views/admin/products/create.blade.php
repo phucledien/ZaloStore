@@ -8,16 +8,19 @@
         <li class="breadcrumb-item">
           <a href="{{ route('dashboard') }}">Dashboard</a>
         </li>
+        <li class="breadcrumb-item">
+          <a href="{{ route('products.index') }}">Products</a>
+        </li>
         <li class="breadcrumb-item active">Create Product</li>
     </ol>
 
-    <div class="card mb-3 ml-3 mr-3">
+    <div class="card mb-3">
         <div class="card-header">
             Create Product
         </div>
         <div class="card-body">
 
-            <form method="POST" action="{{ route('products.store') }}">
+            <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label>Product name</label>
@@ -31,12 +34,12 @@
 
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="text" class="form-control" id="price" name='price'>
+                    <input type="number" class="form-control" id="price" name='price'>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="inputState">Categorys</label>
+                        <label for="inputState">Categories</label>
                        
 
                         <select id="inputState" class="form-control" name="Categories">
