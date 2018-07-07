@@ -11,25 +11,35 @@ class ProductsController extends Controller
     {
         $zaloClient = new ZaloClient();
         $products = $zaloClient->getListProduct()['products'];
+        $categories = $zaloClient->getCategories()['cates'];
         return view('admin.products.index')->with('products', $products);
 
     }
 
     public function create()
     {
-        return view('admin.products.create');
+        $zaloClient = new ZaloClient();
+        $categories = $zaloClient->getCategories()['cates'];
+        return view('admin.products.create')->with('categories',$categories);
     }
 
     public function store()
     {
-        $images = request('images');
         $zaloClient = new ZaloClient();
+
+        $name = request('name');
+        $desc = request('description');
+        $cateids = request('Categories');
+        $price= request('price');   
+        $images = request('images');
         $image_paths = [];
+    
         foreach($images as $image) {
             $image_paths[] = $image->path();
         }
 
-        $zaloClient->createProduct('demo', 'abcxyzlskdjfksdf', $image_paths, 200000);
+        dd(request()->images[0]->path());
+        //$zaloClient->createProduct($name, $desc, $image_paths, $price);
 
 
 
@@ -41,17 +51,30 @@ class ProductsController extends Controller
 
         // }
         // dd('Done');
-        
-    }
+    }   
+    
 
     public function edit()
     {
-        // 
+        $zaloClient = new ZaloClient();
+        $categories = $zaloClient->getCategories()['cates'];
+        return view('admin.product.edit')->with('categories',$categories);
     }
 
     public function update()
     {
-        // 
+        $zaloClient = new ZaloClient();
+        $name = request('name');
+        $desc = request('description');
+        $cateids = request('Categories');
+        $price= request('price');   
+        $images = request('images');
+        $image_paths = [];
+        foreach($images as $image) {
+            $image_paths[] = $image->path();
+        }
+
+        $zaloClient->updateProduct($product_id,$name, $desc, $image_paths, $price);
     }
 
     public function destroy()

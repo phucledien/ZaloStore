@@ -8,8 +8,8 @@
         </div>
         <div class="card-body">
 
-            <form>
-
+            <form method="POST" action="{{ route('products.update') }}">
+                @csrf
                 <div class="form-group">
                     <label>Product name</label>
                     <input type="text" class="form-control" id="productName">
@@ -20,28 +20,28 @@
                     <textarea class="form-control" id="productDescription" rows="3"></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" id="price" name='price'>
+                </div>
+
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputState">Categorys</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
+                       
+
+                        <select id="inputState" class="form-control" name="Categories">
+                            @foreach ($categories as $category)
+                                <option value="{{$category['id']}}">{{$category['name']}}</option>
+                            @endforeach
                         </select>
                     </div>
                     
-                    <div class="form-group col-md-4">
-                        <label for="inputState">Attributes</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
                 </div>
 
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    <input type="file" class="custom-file-input" id="images" required  multiple>
+                    <label class="custom-file-label" for="images">Choose file...</label>
                 </div>
 
                 <button type="button" class="btn btn-success mt-2">Success</button>
