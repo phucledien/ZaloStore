@@ -12,11 +12,19 @@ class MessagesController extends Controller
         return view('messages.index');
     }
 
-    public function send()
+    public function broadcastCreate()
+    {
+        return view('admin.messages.broadcast');
+    }
+
+    public function broadcastStore()
     {   
         $zaloClient = new ZaloClient();
+
         $zaloClient->broadcast(request()->message);
-        session()->flash('success', 'Sent message');
-        return redirect()->route('messages.index');
+
+        session()->flash('success', 'Broadcasted message successfully');
+
+        return redirect()->route('messages.broadcast.create');
     }
 }

@@ -11,18 +11,37 @@
           <span class="nav-link-text">Dashboard</span>
         </a>
       </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-        <a class="nav-link" href="{{route('stores.index') }}">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Stores">
+        <a class="nav-link" href="{{ route('stores.index') }}">
           <i class="fa fa-fw fa-bank"></i>
-          <span class="nav-link-text">Store</span>
+          <span class="nav-link-text">Stores</span>
         </a>
       </li>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Messages">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMessages" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-commenting"></i>
+          <span class="nav-link-text">Messages</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseMessages">
+          <li>
+            <a href="{{route('messages.broadcast.create')}}">Broadcast Message</a>
+          </li>
+          <li>
+            <a href="#">Messages</a>
+          </li>
+          <li>
+            <a href="">Categories</a>
+          </li>
+        </ul>
+      </li>
+      
       <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Products">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseComponents" data-parent="#exampleAccordion">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseProducts" data-parent="#exampleAccordion">
           <i class="fa fa-fw fa-tag"></i>
           <span class="nav-link-text">Products</span>
         </a>
-        <ul class="sidenav-second-level collapse" id="collapseComponents">
+        <ul class="sidenav-second-level collapse" id="collapseProducts">
           <li>
             <a href="{{route('products.index')}}">All product</a>
           </li>
@@ -40,11 +59,11 @@
       </li>
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right"title="Order">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseExamplePages" data-parent="#exampleAccordion">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"href="#collapseOrders" data-parent="#exampleAccordion">
           <i class="fa fa-fw fa-shopping-basket"></i>
           <span class="nav-link-text">Orders</span>
         </a>
-        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+        <ul class="sidenav-second-level collapse" id="collapseOrders">
           <li>  
             <a href="{{route('orders.index')}}">View Orders</a>
           </li>

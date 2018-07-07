@@ -24,14 +24,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Dashboard route
     Route::get('/', 'DashboardController@index')->name('dashboard');
     
-    // Products route
-    Route::resource('products', 'ProductsController');
-
     // Categories route
     Route::resource('categories','CategoriesController');
 
+    // Message route
+    Route::get('messages', 'MessagesController@broadcastCreate')->name('messages.broadcast.create');
+    Route::post('messages', 'MessagesController@broadcastStore')->name('messages.broadcast.store');
+
     // Orders route
     Route::resource('orders','OrdersController');
+
+    // Products route
+    Route::resource('products', 'ProductsController');
 
     // Store route
     Route::resource('stores', 'StoresController');
