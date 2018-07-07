@@ -54,11 +54,12 @@ class ProductsController extends Controller
     }   
     
 
-    public function edit()
+    public function edit($id)
     {
         $zaloClient = new ZaloClient();
         $categories = $zaloClient->getCategories()['cates'];
-        return view('admin.product.edit')->with('categories',$categories);
+        
+        return view('admin.products.edit')->with('categories',$categories)->with('id',$id);
     }
 
     public function update()
