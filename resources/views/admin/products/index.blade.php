@@ -43,7 +43,7 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Categories</th>
-                    <th>Date</th>
+                    <th>Updated Date</th>
                     
                   </tr>
                 </thead>
@@ -53,7 +53,7 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Categories</th>
-                    <th>Date</th>
+                    <th>Updated Date</th>
                     
                   </tr>
                 </tfoot>
@@ -74,20 +74,20 @@
                             {{$category}},
                           @endforeach
                         </td>
-                        <td>{{$product['updateTime']}}</td>
+                        <td>{{ \Carbon\Carbon::createFromTimestampMS($product['updateTime'])->format('d-m-Y') }}</td>
                         
                       </tr>
                     @endforeach
                   @else
                     <tr>
-                      <th>There is no category</th>
+                      <th>There is no products</th>
                     </tr>
                   @endif
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    
         </div>
         </div>
 @endsection

@@ -326,7 +326,9 @@ class ZaloClient {
      * $display: trạng thái sant phẩm show/hide
      * $payment: 2 - enable | 3 - disable
      */
-    public function updateProduct($productID,$cateids,$name,$desc,$code,$price= 15000,$filePaths,$display='show',$payment= 2){
+
+
+    public function updateProduct($productID,$name,$desc,$filePaths,$price= 15000,$cateids=[],$code="",$display='show',$payment= 2){
         $photos = [];
         foreach($filePaths as $filePath){      
             $photo=array('id'=>$this->uploadPhoto($filePath));
@@ -347,8 +349,9 @@ class ZaloClient {
             'product' => $productUpdate
         );
         $params = ['data' => $data];
-        $response = $zalo->post(ZaloEndpoint::API_OA_STORE_ONBEHALF_UPDATE_PRODUCT, $params);
-        return $result = $response->getDecodedBody()['data']; // result
+        $response = $this->zalo->post(ZaloEndpoint::API_OA_STORE_UPDATE_PRODUCT, $params);
+        
+        return $result = $response->getDecodedBody(); // result
     }
     /**
      * Get list  product
@@ -365,15 +368,25 @@ class ZaloClient {
         return $result = $response->getDecodedBody()['data']; // result
     }
     /**
+     * Get Product
+     * 
+     */
+    public function getProduct($productid){
+        $data = array(
+            'productid' => $productid
+        );
+        $params = ['data' => $data];
+        $response = $this->zalo->get(ZaloEndpoint::API_OA_STORE_GET_PRODUCT, $params);
+        return $result = $response->getDecodedBody()['data']; // result
+    }
+    /**
      * Remove product
      * $productID: id sản phẩm
      */
     public function removeProduct($productID){
-        $data = array(
-            'productid' => $productID
-        );
-        $params = ['data' => $data];
-        $response = $this->$zalo->post(ZaloEndpoint::API_OA_STORE_ONBEHALF_REMOVE_PRODUCT, $params);
-        return $result = $response->getDecodedBody()['data'];
+        
+        $params = ['productid' => $productID];
+        $response = $this->zalo->post(ZaloEndpoint::API_OA_STORE_REMOVE_PRODUCT, $params);
+        return $result = $response->getDecodedBody();
     }
 }

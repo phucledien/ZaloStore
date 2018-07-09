@@ -46,19 +46,24 @@ class ProductsController extends Controller
     }   
     
 
-    public function edit($id)
+    public function edit($productid)
     {
+        // $product = Api::getProduct($id);
         $zaloClient = new ZaloClient();
         $categories = $zaloClient->getCategories()['cates'];
-        return view('admin.products.edit')->with('categories',$categories)->with('id',$id);
+        $product = $zaloClient->getProduct($productid);
+        
+        return view('admin.products.edit')->with('categories',$categories)->with('product',$product);
+
     }
 
-    public function update( $product)
+    public function update( $productid)
     {
         $zaloClient = new ZaloClient();
         $name = request('name');
         $desc = request('description');
-        $cateids = request('Categories');
+        $cateid = request('Cateid');
+        $category_ids=[];
         $price= request('price');   
         $images = request('images');
         $image_paths = [];
@@ -66,15 +71,19 @@ class ProductsController extends Controller
             $image_paths[] = $image->path();
         }
 
-        $zaloClient->updateProduct($product['id'],$name, $desc, $image_paths, $price);
+        $zaloClient->updateProduct($productid,$name, $desc, $image_paths,$price);
         
         session()->flash('success', 'Update Product Successfully');
 
         return redirect()->route('products.index');
     }
 
-    public function destroy()
+    public function destroy($ProductId)
     {
-        // 
+        $zaloClient = new ZaloClient();
+        $data = $zaloClient->removeProduct($ProductId);
+        session()->flash('success', 'The product deleted!');
+
+        return redirect()->route('products.index');
     }
 }
