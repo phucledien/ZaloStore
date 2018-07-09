@@ -3,38 +3,36 @@
 @section('content')
 <div class="container-fluid">
     
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="{{ route('dashboard') }}">Dashboard</a>
+            <a href="{{ route('dashboard') }}">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Broadcast</li>
-      </ol>
+        <li class="breadcrumb-item active">Messages</li>
+    </ol>
 
-  @if (Session::has('success'))
-      <div class="alert alert-success alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-          {{ Session::get('success') }}
-      </div>
-  @endif
-
-  <div class="card mb-3">
-            <div class="card-header">
-                Broadcast Message
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Phuc Le Dien</h5>
+            <small>3 days ago</small>
             </div>
-            <div class="card-body">
-
-                <form method="POST" action="{{ route('messages.broadcast') }}">
-                    @csrf
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <input type="text" class="form-control" id="message" name="message">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary mt-2">Send message</button>
-                </form>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Phuc Le Dien</h5>
+            <small class="text-muted">3 days ago</small>
             </div>
-        </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Phuc Le Dien</h5>
+            <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+    </div>
+</div>
 @endsection

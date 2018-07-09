@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Store');
     }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
 }

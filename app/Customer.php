@@ -10,4 +10,9 @@ class Customer extends Model
     {
         return $this->hasMany('App\Order');
     }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
 }

@@ -24,12 +24,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Dashboard route
     Route::get('/', 'DashboardController@index')->name('dashboard');
     
+    // Broadcast route
+    Route::get('broadcast', 'MessagesController@broadcastCreate')->name('messages.broadcast.create');
+    Route::post('broadcast', 'MessagesController@broadcastStore')->name('messages.broadcast.store');
+    
     // Categories route
     Route::resource('categories','CategoriesController');
 
+    // Callback Get Message from ZALO
+    Route::get('zalo', 'MessagesController@callback')->name('zalo.callback');
+
     // Message route
-    Route::get('messages', 'MessagesController@broadcastCreate')->name('messages.broadcast.create');
-    Route::post('messages', 'MessagesController@broadcastStore')->name('messages.broadcast.store');
+    Route::get('messages', 'MessagesController@index')->name('messages.index');
 
     // Orders route
     Route::resource('orders','OrdersController');

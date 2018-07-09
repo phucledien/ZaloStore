@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Log;
 use App\ZaloClient;
 
 class MessagesController extends Controller
 {
     public function index()
     {
-        return view('messages.index');
+        return view('admin.messages.index');
+    }
+
+    public function callback()
+    {
+        Log::info('ZALO CALLBACK: '.request());
     }
 
     public function broadcastCreate()
