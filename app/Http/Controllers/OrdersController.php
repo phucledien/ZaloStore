@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\ZaloClient;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,10 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return view('admin.orders.index');
+        $zaloClient = new ZaloClient();
+        $orders = $zaloClient->getOrders()['orders'];
+        
+        return view('admin.orders.index')->with('orders',$orders);
     }
 
     /**

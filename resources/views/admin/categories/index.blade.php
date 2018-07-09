@@ -1,6 +1,18 @@
 @extends ('admin.layouts.master')
 
 @section ('content')
+
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <a href="{{ route('dashboard') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item">
+        <a href="{{ route('products.index') }}">Products</a>
+        </li>
+        <li class="breadcrumb-item active">Categories</li>
+    </ol>
+
     <div class="row">
         <div class="col-md-3">
         
@@ -77,13 +89,16 @@
                                     <tr>
                                         <td>{{$category['name']}}</td>
                                         <td>{{$category['description']}}</td>
-                                        
-                                        
                                         <td>
-                                            <button type="button" class="btn btn-success"><a href=''>Edit</a></button>
+                                            <button type="button" class="btn btn-success">
+                                            <a href="{{ route('categories.edit', ['id'=> $category['id']]) }}">Edit</a></button>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-danger"><a href=''>Delete</a></button>
+                                        <form action="{{ route('categories.destroy', ['id'=> $category['id']]) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger" >Delete</button>
+                                        </form>
                                         </td>
                                     </tr>
                                 @endforeach

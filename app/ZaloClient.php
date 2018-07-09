@@ -61,7 +61,7 @@ class ZaloClient {
      * 6	Get the canceled orders
      * 7	Get the failed delivery orders
      */
-    public function getOrders($offset = 0, $count = 50, $filter = 0)
+    public function getOrders($offset = 0, $count = 10, $filter = 0)
     {
         $data = [
             'offset' => $offset,

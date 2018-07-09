@@ -44,6 +44,8 @@
                     <th>Price</th>
                     <th>Categories</th>
                     <th>Updated Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                     
                   </tr>
                 </thead>
@@ -54,6 +56,8 @@
                     <th>Price</th>
                     <th>Categories</th>
                     <th>Updated Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                     
                   </tr>
                 </tfoot>
@@ -64,8 +68,6 @@
                         <td>{{$product['id']}}</td>
                         <td>
                           <div>{{$product['name']}}</div>
-                          <a href="{{route('products.edit', ['id'=> $product['id']] )}}">Edit</a>  |
-                          <a href="">Delete</a>
                         </td>
 
                         <td>{{$product['price']}}</td>
@@ -75,7 +77,16 @@
                           @endforeach
                         </td>
                         <td>{{ \Carbon\Carbon::createFromTimestampMS($product['updateTime'])->format('d-m-Y') }}</td>
-                        
+                        <td>
+                          <a href="{{route('products.edit', ['id'=> $product['id']] )}}" class="btn btn-success">Edit</a>
+                        </td>
+                        <td>
+                          <form action="{{ route('products.destroy', ['id'=> $product['id']]) }}" method="POST">
+                          @method('DELETE')
+                          @csrf
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </td>
                       </tr>
                     @endforeach
                   @else

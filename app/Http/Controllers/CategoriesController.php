@@ -59,7 +59,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.caregories.edit');
+        return view('admin.categories.edit');
     }
 
     /**

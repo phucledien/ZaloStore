@@ -30,9 +30,9 @@
           <li>
             <a href="#">Messages</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="">Categories</a>
-          </li>
+          </li> -->
         </ul>
       </li>
       
@@ -51,10 +51,10 @@
           <li>
             <a href="{{route('categories.index')}}">Categories</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="">Attributes</a>
             <!-- route('attributes.index') -->
-          </li>
+          </li> -->
         </ul>
       </li>
 
@@ -66,9 +66,6 @@
         <ul class="sidenav-second-level collapse" id="collapseOrders">
           <li>  
             <a href="{{route('orders.index')}}">View Orders</a>
-          </li>
-          <li>
-            <a href="#">Create Order</a>
           </li>
         </ul>
       </li>

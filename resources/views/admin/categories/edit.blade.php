@@ -2,6 +2,20 @@
 
 @section ('content')
 
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <a href="{{ route('dashboard') }}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item">
+        <a href="{{ route('products.index') }}">Products</a>
+        </li>
+        <li class="breadcrumb-item">
+        <a href="{{ route('categories.index') }}">Products</a>
+        </li>
+        <li class="breadcrumb-item active">Edit Category</li>
+    </ol>
+
     <div class="card mb-3 ml-3 mr-3">
         <div class="card-header">
             Edit Categories
