@@ -33,27 +33,26 @@
                 @csrf
                 <div class="form-group">
                     <label>Product name</label>
-                    <input type="text" class="form-control" id="name" name='name' value="">
+                    <input type="text" class="form-control" id="name" name='name' value="{{$product['name']}}">
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" id="description" name='description' rows="3"></textarea>
+                    <textarea class="form-control" id="description" name='description' rows="3" >{{$product['desc']}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="number" class="form-control" id="price" name='price'>
+                    <input type="number" class="form-control" id="price" name='price' value="{{$product['price']}}" >
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputState">Categories</label>
-                       
-
-                        <select id="inputState" class="form-control" name="Cateid">
+                        <select class="custom-select" id="cateid" name="cateid[]" size="3">
+                            <option  value="" selected> Uncategorized</option>
                             @foreach ($categories as $category)
-                                <option value="{{$category['id']}}">{{$category['name']}}</option>
+                                <option  value="{{$category['id']}}">  {{$category['name']}}</option>
                             @endforeach
                         </select>
                     </div>

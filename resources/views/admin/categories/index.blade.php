@@ -2,16 +2,7 @@
 
 @section ('content')
 
-    <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-        <a href="{{ route('dashboard') }}">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item">
-        <a href="{{ route('products.index') }}">Products</a>
-        </li>
-        <li class="breadcrumb-item active">Categories</li>
-    </ol>
+        
 
     <div class="row">
         <div class="col-md-3">
@@ -70,22 +61,19 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
-                                 
-                                <th>Edit</th> 
-                                <th>Delete</th> 
+                                <th>Edit</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
-                                  
-                                <th>Edit</th> 
-                                <th>Delete</th> 
+                                <th>Edit</th>
                             </tr>
                             </tfoot>
                             <tbody>
                                 @foreach( $categories as $category)
+                                    @if($category['status']==0)
                                     <tr>
                                         <td>{{$category['name']}}</td>
                                         <td>{{$category['description']}}</td>
@@ -93,14 +81,15 @@
                                             <button type="button" class="btn btn-success">
                                             <a href="{{ route('categories.edit', ['id'=> $category['id']]) }}">Edit</a></button>
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                         <form action="{{ route('categories.destroy', ['id'=> $category['id']]) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger" >Delete</button>
                                         </form>
-                                        </td>
+                                        </td> -->
                                     </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

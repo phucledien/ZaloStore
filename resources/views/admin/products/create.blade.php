@@ -13,7 +13,14 @@
         </li>
         <li class="breadcrumb-item active">Create Product</li>
     </ol>
-
+    @if (Session::has('success'))
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          {{ Session::get('success') }}
+      </div>
+    @endif
     <div class="card mb-3">
         <div class="card-header">
             Create Product
@@ -39,12 +46,10 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="inputState">Categories</label>
-                       
-
-                        <select id="inputState" class="form-control" name="Categories">
+                        <label for="cate">Categories</label>
+                        <select id="cate" class="form-control" name="Categories">
                             @foreach ($categories as $category)
-                                <option value="{{$category['id']}}">{{$category['name']}}</option>
+                                <option name="Categories[]" value="{{$category['id']}}">{{$category['name']}}</option>
                             @endforeach
                         </select>
                     </div>

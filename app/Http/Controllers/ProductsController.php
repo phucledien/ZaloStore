@@ -62,20 +62,21 @@ class ProductsController extends Controller
         $zaloClient = new ZaloClient();
         $name = request('name');
         $desc = request('description');
-        $cateid = request('Cateid');
-        $category_ids=[];
-        $price= request('price');   
-        $images = request('images');
-        $image_paths = [];
-        foreach($images as $image) {
-            $image_paths[] = $image->path();
-        }
+        $cateid = request('cateid');
+        dd($cateid);
+        // $category_ids=[];
+        // $price= request('price');   
+        // $images = request('images');
+        // $image_paths = [];
+        // foreach($images as $image) {
+        //     $image_paths[] = $image->path();
+        // }
 
-        $zaloClient->updateProduct($productid,$name, $desc, $image_paths,$price);
+        // $zaloClient->updateProduct($productid,$name, $desc, $image_paths,$price);
         
-        session()->flash('success', 'Update Product Successfully');
+        // session()->flash('success', 'Update Product Successfully');
 
-        return redirect()->route('products.index');
+        // return redirect()->route('products.index');
     }
 
     public function destroy($ProductId)

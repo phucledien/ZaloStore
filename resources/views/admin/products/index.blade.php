@@ -40,6 +40,7 @@
                 <thead>
                   <tr>
                     <th>ID</th>
+                    <th>Image</th>  
                     <th>Name</th>
                     <th>Price</th>
                     <th>Categories</th>
@@ -52,6 +53,7 @@
                 <tfoot>
                   <tr>
                     <th>ID</th>
+                    <th>Image</th> 
                     <th>Name</th>
                     <th>Price</th>
                     <th>Categories</th>
@@ -66,6 +68,7 @@
                     @foreach ($products as $product)
                       <tr>
                         <td>{{$product['id']}}</td>
+                        <td> <img width="50" height="50" src="{{$product['photoLinks'][0]}}" ></td>
                         <td>
                           <div>{{$product['name']}}</div>
                         </td>
