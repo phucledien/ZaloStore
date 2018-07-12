@@ -25,6 +25,7 @@ class ProductsController extends Controller
 
     public function store()
     {
+        dd(request('name'));
         $zaloClient = new ZaloClient();
 
         $name = request('name');

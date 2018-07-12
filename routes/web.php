@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\OrderStatusUpdated;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,16 @@
 // Homepage route
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
+
+Route::get('api/messages', 'MessagesController@apiIndex')->name('api.messages.index');
+Route::get('api/messages/uid/{uid}', 'MessagesController@apiShow')->name('api.messages.show');
 
 // Auth routes
 Auth::routes();
+
+// Callback Get Message from ZALO
+Route::get('zalo', 'MessagesController@callback')->name('zalo.callback');
 
 // Admin routes group
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
@@ -31,11 +39,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Categories route
     Route::resource('categories','CategoriesController');
 
-    // Callback Get Message from ZALO
-    Route::get('zalo', 'MessagesController@callback')->name('zalo.callback');
 
     // Message route
     Route::get('messages', 'MessagesController@index')->name('messages.index');
+    
+    Route::post('messages', 'MessagesController@store')->name('messages.store');
+
+    Route::get('messages/uid/{uid}', 'MessagesController@show')->name('messages.show');
 
     // Orders route
     Route::resource('orders','OrdersController');

@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('customer_id');
+            $table->integer('from')->default(0);    // 0 is admin, 1 is customer
             $table->text('text');
             $table->timestamps();
         });
