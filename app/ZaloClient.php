@@ -5,6 +5,7 @@ use Zalo\Zalo;
 use Zalo\ZaloEndpoint;
 use Zalo\FileUpload\ZaloFile;
 use App\ZaloConfig;
+use Log;
 
 class ZaloClient {
     protected $zalo;
@@ -23,6 +24,14 @@ class ZaloClient {
         $params = ['data' => $data];
         return $followerIds = $this->zalo->get(ZaloEndpoint::API_OA_GET_FOLLOWERS_LIST, $params)->getDecodedBody()['data']['followers'];
     }
+
+    public function getFollowerInfo($uid) {
+        $params = ['uid' => $uid]; // put user id here
+        $response = $this->zalo->get(ZaloEndpoint::API_OA_GET_PROFILE, $params);
+        Log::info($response->getDecodedBody());
+        return $response->getDecodedBody()['data']; // result
+    }
+
     /**
      * Send message to user
      * $uid: User id want to send message

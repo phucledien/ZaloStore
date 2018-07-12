@@ -28,11 +28,8 @@
             <a href="{{route('messages.broadcast.create')}}">Broadcast Message</a>
           </li>
           <li>
-            <a href="#">Messages</a>
+            <a href="{{ route('messages.index') }}">Messages</a>
           </li>
-          <!-- <li>
-            <a href="">Categories</a>
-          </li> -->
         </ul>
       </li>
       

@@ -16,12 +16,12 @@ class ZaloConfig {
     protected $zaloAppSecretKey;
     protected $zaloOaID;
     protected $zaloOaSecretKey;
-    public function __construct()
+    public function __construct($zaloOaID='3186267020034142764', $zaloOaSecretKey='XkcN6J3G6QB0BTPRhYJK', $zaloAppId='abc', $zaloAppSecretKey='abc')
     {
-        $this->zaloAppId = "abc";
-        $this->zaloAppSecretKey = "abc";
-        $this->zaloOaID = Auth::user()->store->oa_id;
-        $this->zaloOaSecretKey = Auth::user()->store->oa_secret;
+        $this->zaloAppId = $zaloAppId;
+        $this->zaloAppSecretKey = $zaloAppSecretKey;
+        $this->zaloOaID = $zaloOaID;
+        $this->zaloOaSecretKey = $zaloOaSecretKey;
     }
     /**
      * Get zalo sdk config

@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\OrderStatusUpdated;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,22 +16,36 @@
 // Homepage route
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
+
+Route::get('api/messages', 'MessagesController@apiIndex')->name('api.messages.index');
+Route::get('api/messages/uid/{uid}', 'MessagesController@apiShow')->name('api.messages.show');
 
 // Auth routes
 Auth::routes();
+
+// Callback Get Message from ZALO
+Route::get('zalo', 'MessagesController@callback')->name('zalo.callback');
 
 // Admin routes group
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Dashboard route
     Route::get('/', 'DashboardController@index')->name('dashboard');
     
+    // Broadcast route
+    Route::get('broadcast', 'MessagesController@broadcastCreate')->name('messages.broadcast.create');
+    Route::post('broadcast', 'MessagesController@broadcastStore')->name('messages.broadcast.store');
+    
     // Categories route
     Route::resource('categories','CategoriesController');
 
+
     // Message route
-    Route::get('messages', 'MessagesController@broadcastCreate')->name('messages.broadcast.create');
-    Route::post('messages', 'MessagesController@broadcastStore')->name('messages.broadcast.store');
+    Route::get('messages', 'MessagesController@index')->name('messages.index');
+    
+    Route::post('messages', 'MessagesController@store')->name('messages.store');
+
+    Route::get('messages/uid/{uid}', 'MessagesController@show')->name('messages.show');
 
     // Orders route
     Route::resource('orders','OrdersController');
